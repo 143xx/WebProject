@@ -15,8 +15,28 @@ String runtime="";
 String coast="1000";
 
 String sort= request.getParameter("sort");
+String locker_= request.getParameter("locker_");
+String date_s= request.getParameter("date_s");
 
 Statement stmt = null;
+
+if(locker_.equals("0")){
+	locker_="";
+}
+else {
+	locker_="WHERE locker='"+locker_+"'";
+}
+if(date_s.equals("0")){
+	date_s="";
+}
+else{
+	if(locker_!=""){
+		date_s=" and startDate='"+date_s+"'";
+	}
+	else if (locker_==""){
+		date_s="WHERE startDate='"+date_s+"'";
+	}
+}
 
 try {
 InitialContext ctx = new InitialContext();
@@ -26,7 +46,7 @@ Connection con = ds.getConnection();
 stmt = con.createStatement();
 int howMuch=0;
 String date="";
-ResultSet result= stmt.executeQuery("SELECT * FROM locker.이용내역 ORDER BY "+sort+";");
+ResultSet result= stmt.executeQuery("SELECT * FROM locker.이용내역 "+locker_+date_s+" ORDER BY "+sort+";");
 while(result.next()){ 
 	no = result.getString(1);
 	phone = result.getString(2);
@@ -49,13 +69,6 @@ while(result.next()){
 		date += result.getString(4)+" ";
 }
 out.print("총 수입: "+howMuch+"원<br>");
-String data[]=date.split(" ");
-
-out.println("날짜별로 보기: <select name='date' id='date'>");
-for(int i=0;i<data.length;i++){
-	out.println("<option value='"+data[i]+"'>"+data[i]+"</option>");
-}
-out.println("</select>");
 
 con.close();
 } catch (Exception e) {

@@ -13,7 +13,7 @@ DataSource ds = (DataSource) ctx.lookup("java:comp/env/jdbc/mysql");
 Connection con = ds.getConnection();
 
 stmt = con.createStatement();
-ResultSet result = stmt.executeQuery("SELECT 이름 FROM locker.관리자 where id='"+id+ "' and password='"+pw+"';");
+ResultSet result = stmt.executeQuery("SELECT name FROM locker.관리자 where id='"+id+ "' and password='"+pw+"';");
 if(result.next()){ 
 	response.sendRedirect("manager.jsp"); // 페이지이동
 	//out.println(result.getString(1)+"님 반갑습니다!");
