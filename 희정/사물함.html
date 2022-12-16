@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>무인 물품 보관함</title>
+<style>
+button:hover{
+letter-spacing: 2px;
+transform: scale(1.2);
+cursor: pointer;
+	}
+button:active{
+transform: scale(0.7);
+	}
+.modal, .re-modal {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(1.1);
+        transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+    }
+.modal-content, .re-modal-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        font-size: 18px;
+        padding: 1rem 2rem;
+        width: 600px;
+        height: 350px;
+        border-radius: 0.5rem;
+    }
+.close-button, .re-close-button{
+        float: right;
+        width: 1.5rem;
+        line-height: 1.5rem;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 0.25rem;
+        background-color: lightgray;
+    }
+.close-button:hover {
+        background-color: darkgray;
+    }
+.show-modal, .re-show-modal {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1.0);
+        transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+    }
+
+#cancel {
+    	width: 127px; height: 48px;
+    	text-align: center;
+    	border: none;
+    	margin-top: 20px;
+    	cursor: pointer;
+    }
+#cancel:hover{
+    	color: #fff;
+    	background-color: #216282;
+    	opacity: 0.9;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>물품 보관함</h1><hr>
+<p>물품을 보관하시려면 '물품 보관'을 선택해 주세요.<br>
+보관하신 물품을 찾으시려면 '물품 찾기'를 선택해 주세요.<br>
+이용시간은 5시간입니다. <br>
+물품함의 사이즈는 소, 중, 대로 3가지 입니다. <br>
+총 보관함의 갯수는 30개 이며, 사이즈 별로 10개씩 있습니다. <br>
+기본요금은 사이즈 별로 나뉩니다. 소는 1000원, 중은 2000원, 대는 3000원입니다. <br>
+시간을 초과할 시 10분당 200원의 추가금이 붙습니다. 모든 사물함이 동일하게 적용됩니다.<br> </p>
+
+<section>
+<button class="Btn" id="keep" style="margin-left:10%;">물건 보관</button>
+<div class="modal">
+	<div class="modal-content" style="color: black;">
+		<span class="close-button">&times;</span>
+        <h2>물건 보관</h2><hr>
+        <h4>물품 보관을 선택하셨습니다.</h4>
+        <p style="font-size:15px;">물품함의 1~10번은 소, 11~20번은 중, 21~30번은 대 사이즈입니다. <br>
+		5시간 이용에 요금은 소는 1000원, 중은 2000원, 대는 3000원입니다. <br>
+		시간을 초과할 시 10분당 200원의 추가금이 붙습니다.(사이즈 구분 X) <br> 
+		한 번에 하나의 사물함만 결제가 가능합니다. <br> </p>
+		<h4>위의 사항을 동의하시면 확인 버튼을 눌러주세요.</h4>
+		<button type="button" onclick="location.href='keep.jsp'">확인</button>
+		<button type="button" onclick="location.reload();">취소</button>
+	</div>
+</div>
+
+<button class="Btn" id="recover" style="margin-left:10%;">물건 찾기</button>
+<div class="re-modal">
+	<div class="re-modal-content" style="color: black;">
+		<span class="re-close-button">&times;</span>
+        <h1 class="re-title">물건 찾기</h1>
+        <h4>물품 찾기를 선택하셨습니다.</h4>
+	</div>
+</div>
+</section>
+</body>
+<script>
+	var modal = document.querySelector(".modal");
+	var trigger = document.getElementById("keep");
+	var closeButton = document.querySelector(".close-button");
+	function toggleModal() {
+		modal.classList.toggle("show-modal");
+		}
+	function windowOnClick(event) {
+	  	if (event.target === modal){
+			toggleModal();
+			}
+		}
+	
+	trigger.addEventListener("click", toggleModal);
+	closeButton.addEventListener("click", toggleModal);
+	window.addEventListener("click", windowOnClick);
+
+	var remodal = document.querySelector(".re-modal");
+	var trigger2 = document.getElementById("recover");
+	var closeButton2 = document.querySelector(".re-close-button");
+	function toggleModal2() {
+		remodal.classList.toggle("re-show-modal");
+		}
+	function windowOnClick2(event) {
+	  	if (event.target === remodal){
+			toggleModal2();
+			}
+		}
+
+	trigger2.addEventListener("click", toggleModal2);
+	closeButton2.addEventListener("click", toggleModal2);
+	window.addEventListener("click", windowOnClick2);
+</script>
+</html>
