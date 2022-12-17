@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <title>무인 물품 보관함</title>
 <style>
+		html, body { margin: 0; padding: 0; height: 100%; }
+		header { width: 100%; height: 20%; 
+			background: linear-gradient(pink, white); 
+			font: 32pt Arial bold;
+			text-align: center;
+			font-family: "Times New Roman", "Times", serif; }
+		section { width: 100%; height: 70%; float: left;	
+			font-family: "Times New Roman", "Times", serif;
+			text-align: center; }
 button:hover{
 letter-spacing: 2px;
 transform: scale(1.2);
@@ -71,7 +80,8 @@ transform: scale(0.7);
 </head>
 
 <body>
-
+<header>LOCKER</header>
+<section>
 <h1>물품 보관함</h1><hr>
 <p>물품을 보관하시려면 '물품 보관'을 선택해 주세요.<br>
 보관하신 물품을 찾으시려면 '물품 찾기'를 선택해 주세요.<br>
@@ -81,8 +91,8 @@ transform: scale(0.7);
 기본요금은 사이즈 별로 나뉩니다. 소는 1000원, 중은 2000원, 대는 3000원입니다. <br>
 시간을 초과할 시 10분당 200원의 추가금이 붙습니다. 모든 사물함이 동일하게 적용됩니다.<br> </p>
 
-<section>
-<button class="Btn" id="keep" style="margin-left:10%;">물건 보관</button>
+
+<button class="Btn" id="keep" style="margin-right:5%;">물건 보관</button>
 <div class="modal">
 	<div class="modal-content" style="color: black;">
 		<span class="close-button">&times;</span>
@@ -98,15 +108,22 @@ transform: scale(0.7);
 	</div>
 </div>
 
-<button class="Btn" id="recover" style="margin-left:10%;">물건 찾기</button>
+<button class="Btn" id="recover" >물건 찾기</button>
 <div class="re-modal">
 	<div class="re-modal-content" style="color: black;">
 		<span class="re-close-button">&times;</span>
-        <h1 class="re-title">물건 찾기</h1>
-        <h4>물품 찾기를 선택하셨습니다.</h4>
+		<form name='recover' method='post' action='find.jsp'>
+	        <h1 class="re-title">물건 찾기</h1><hr>
+	        <h4>물품 찾기를 선택하셨습니다.</h4>
+	       	<p>보관할 때 입력한 전화번호를 입력하십시오</p>
+			<label>전화번호: </label>
+			<input type="text" name="phone" id="phone" placeholder="01012341234" minlength="11" maxlength="11" required> <br><br>
+			<br>
+			<input type="submit" value="확인">
+		</form>
 	</div>
 </div>
-<button class="Btn" id="manager" style="margin-left:10%;" onclick="location.href='login.html'">관리자페이지</button>
+<button class="Btn" id="manager" style="margin-left:5%;" onclick="location.href='login.html'">관리자페이지</button>
 </section>
 </body>
 <script>

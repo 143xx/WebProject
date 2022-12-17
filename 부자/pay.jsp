@@ -38,7 +38,7 @@ String time = hour+":"+minute;
 <script>
 function pay(how){
 	var payTo = document.getElementById("payTo");
-	payTo.innerHTML = how+"(으)로 결제합니다";
+	payTo.innerHTML = how+"(으)로 결제하였습니다.<br>이용해주셔서 감사합니다";
 	showBtn();
 	insertDB();
 	updateDB();
@@ -133,22 +133,42 @@ function updateDB(){
 #home {
   visibility : hidden;
 }
+		html, body { margin: 0; padding: 0; height: 100%; }
+		header { width: 100%; height: 20%; 
+			background: linear-gradient(pink, white); 
+			font: 32pt Arial bold;
+			text-align: center;
+			font-family: "Times New Roman", "Times", serif; }
+		section { width: 100%; height: 70%; float: left;	
+			font-family: "Times New Roman", "Times", serif;
+			text-align: center; }
+table {
+    width: 600px;
+    margin-left:auto; 
+    margin-right:auto;
+  }
 </style>
 <head>
 <meta charset="UTF-8">
 <title>결제하기</title>
 </head>
 <body>
-<h1>결제</h1><hr>
+<header>PAY</header>
+<section>
+<h1>결제를 진행합니다</h1><hr>
 <h3>결제 정보</h3>
-사물함번호: <%= lockerChoose%>(<%=size %>)<br>
-전화번호: <%= phone%><br>
-선불요금: <%=price %>원<br>
-보관날짜: <%=date %><br>
-보관시간: <%=time %><br><br>
+<table class="board" border=1>
+	<tbody>
+	<tr><td>사물함번호</td><td><b><%= lockerChoose%>(<%=size %>)</b></td></tr>
+	<tr><td>전화번호</td><td><b><%= phone%></b></td></tr>
+	<tr><td>선불요금</td><td><b><%= price%></b></td></tr>
+	<tr><td>보관날짜</td><td><b><%= date%></b></td></tr>
+	<tr><td>보관시간</td><td><b><%= time%></b></td></tr>	
+	</tbody></table><br>
 <input type="button" id="card" value="카드" onclick="pay('카드')">
 <input type="button" id="cash" value="현금" onclick="pay('현금')">
 <p id="payTo"></p>
 <input type="button" id="home" value="메인으로 넘어가기" onclick="location.href='사물함.html'">
+</section>
 </body>
 </html>

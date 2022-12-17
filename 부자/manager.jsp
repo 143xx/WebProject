@@ -85,10 +85,26 @@ function optionDate( ) {
 	}
 }
 </script>
+<style>
+		html, body { margin: 0; padding: 0; height: 100%; }
+		header { width: 100%; height: 20%; 
+			background: linear-gradient(pink, white); 
+			font: 32pt Arial bold;
+			text-align: center;
+			font-family: "Times New Roman", "Times", serif; }
+		section { width: 100%; height: 70%; float: left;	
+			font-family: "Times New Roman", "Times", serif;
+			text-align: center; }
+table {
+    margin-left:auto; 
+    margin-right:auto;
+  }
+</style>
 </head>
 <body>
-<h1>관리자 페이지</h1>
-<hr>
+<header>MANAGE PAGE</header>
+<section>
+
 <label>정렬: <select name="sort" id="sort">
 	<option SELECTED value="no">오래된순으로 보기</option>
 	<option value="no desc">최신순으로 보기</option>
@@ -106,7 +122,9 @@ function optionDate( ) {
 <label>날짜: <select name="date_s" id="date_s">
 	<option SELECTED value="0">전체</option>
 	 
-	</select><input type="button" value="조회" onclick="findDB()"></label>
+	</select>
+	<label> </label>
+	<input type="button" value="조회" onclick="findDB()"></label>
 	<br><br>
 <table class="board" border=1>
 <thead><tr><th>일련번호</th><th>전화번호</th>
@@ -117,4 +135,5 @@ function optionDate( ) {
 <br>
 <label id="howCoast"></label>
 <input type="button" value="메인화면으로 돌아가기" onclick="location.href='사물함.html'">
+</section>
 </body>

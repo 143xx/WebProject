@@ -51,6 +51,15 @@ function checkRadio(){
 }
 </script> 
 <style>
+		html, body { margin: 0; padding: 0; height: 100%; }
+		header { width: 100%; height: 20%; 
+			background: linear-gradient(pink, white); 
+			font: 32pt Arial bold;
+			text-align: center;
+			font-family: "Times New Roman", "Times", serif; }
+		section { width: 100%; height: 70%; float: left;	
+			font-family: "Times New Roman", "Times", serif;
+			text-align: center; }
 button:hover{
 letter-spacing: 2px;
 transform: scale(1.2);
@@ -114,51 +123,70 @@ transform: scale(0.7);
     	background-color: #216282;
     	opacity: 0.9;
     }
+    table {
+    width: 600px;
+    margin-left:auto; 
+    margin-right:auto;
+  }
 </style>
 </head>
-
 <body onload="findDB()">
+<header>LOCKER</header>
+<section>
 <h1>원하시는 사물함 번호를 눌러주세요.</h1>
 <hr>
 <form action="pay.jsp" method="post">
-	크기: 소(small) <br>
-	<input type="radio" name="storageBox" id="1" value="1">1
-	<input type="radio" name="storageBox" id="2" value="2">2
-	<input type="radio" name="storageBox" id="3" value="3">3
-	<input type="radio" name="storageBox" id="4" value="4">4
-	<input type="radio" name="storageBox" id="5" value="5">5
-	<input type="radio" name="storageBox" id="6" value="6">6
-	<input type="radio" name="storageBox" id="7" value="7">7
-	<input type="radio" name="storageBox" id="8" value="8">8
-	<input type="radio" name="storageBox" id="9" value="9">9
-	<input type="radio" name="storageBox" id="10" value="10">10 <br>
+	<table class="board" border=1>
+	<tbody><tr><th COLSPAN="10">크기: 소(small)</th></tr>
+	<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+	<td>7</td><td>8</td><td>9</td><td>10</td></tr>
+
+	<tr><td><input type="radio" name="storageBox" id="1" value="1"></td>
+	<td><input type="radio" name="storageBox" id="2" value="2"></td>
+	<td><input type="radio" name="storageBox" id="3" value="3"></td>
+	<td><input type="radio" name="storageBox" id="4" value="4"></td>
+	<td><input type="radio" name="storageBox" id="5" value="5"></td>
+	<td><input type="radio" name="storageBox" id="6" value="6"></td>
+	<td><input type="radio" name="storageBox" id="7" value="7"></td>
+	<td><input type="radio" name="storageBox" id="8" value="8"></td>
+	<td><input type="radio" name="storageBox" id="9" value="9"></td>
+	<td><input type="radio" name="storageBox" id="10" value="10"></td></tr>
 	
-	크기: 중(midium) <br>
-	<input type="radio" name="storageBox" id="11" value="11">11
-	<input type="radio" name="storageBox" id="12" value="12">12
-	<input type="radio" name="storageBox" id="13" value="13">13
-	<input type="radio" name="storageBox" id="14" value="14">14
-	<input type="radio" name="storageBox" id="15" value="15">15
-	<input type="radio" name="storageBox" id="16" value="16">16
-	<input type="radio" name="storageBox" id="17" value="17">17
-	<input type="radio" name="storageBox" id="18" value="18">18
-	<input type="radio" name="storageBox" id="19" value="19">19
-	<input type="radio" name="storageBox" id="20" value="20">20 <br>
-	
-	크기: 대(large) <br>
-	<input type="radio" name="storageBox" id="21" value="21">21
-	<input type="radio" name="storageBox" id="22" value="22">22
-	<input type="radio" name="storageBox" id="23" value="23">23
-	<input type="radio" name="storageBox" id="24" value="24">24
-	<input type="radio" name="storageBox" id="25" value="25">25
-	<input type="radio" name="storageBox" id="26" value="26">26
-	<input type="radio" name="storageBox" id="27" value="27">27
-	<input type="radio" name="storageBox" id="28" value="28">28
-	<input type="radio" name="storageBox" id="29" value="29">29
-	<input type="radio" name="storageBox" id="30" value="30">30 <br>
+	<tr><th COLSPAN="10">크기: 중(medium)</th></tr>
+	<tr><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td>
+	<td>17</td><td>18</td><td>19</td><td>20</td></tr>
+<tr><td><input type="radio" name="storageBox" id="11" value="11"></td>
+	<td><input type="radio" name="storageBox" id="12" value="12"></td>
+	<td><input type="radio" name="storageBox" id="13" value="13"></td>
+	<td><input type="radio" name="storageBox" id="14" value="14"></td>
+	<td><input type="radio" name="storageBox" id="15" value="15"></td>
+	<td><input type="radio" name="storageBox" id="16" value="16"></td>
+	<td><input type="radio" name="storageBox" id="17" value="17"></td>
+	<td><input type="radio" name="storageBox" id="18" value="18"></td>
+	<td><input type="radio" name="storageBox" id="19" value="19"></td>
+	<td><input type="radio" name="storageBox" id="20" value="20"></td></tr>
+
+	<tr><th COLSPAN="10">크기: 대(large)</th></tr>
+	<tr><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>
+	<td>27</td><td>28</td><td>29</td><td>30</td></tr>
+<tr><td><input type="radio" name="storageBox" id="21" value="21"></td>
+	<td><input type="radio" name="storageBox" id="22" value="22"></td>
+	<td><input type="radio" name="storageBox" id="23" value="23"></td>
+	<td><input type="radio" name="storageBox" id="24" value="24"></td>
+	<td><input type="radio" name="storageBox" id="25" value="25"></td>
+	<td><input type="radio" name="storageBox" id="26" value="26"></td>
+	<td><input type="radio" name="storageBox" id="27" value="27"></td>
+	<td><input type="radio" name="storageBox" id="28" value="28"></td>
+	<td><input type="radio" name="storageBox" id="29" value="29"></td>
+	<td><input type="radio" name="storageBox" id="30" value="30"></td></tr>
+
+	</tbody>
+	</table>
 	<div id="use"></div>
 	<br>
 	<button class="Btn" id="keep" onclick="checkRadio()">다음</button>
+	<button class="Btn" id="keep" onclick="location.href='사물함.html'">이전</button>
+</section>
 <div class="modal">
 	<div class="modal-content" style="color: black;">
 		<span class="close-button">&times;</span>
